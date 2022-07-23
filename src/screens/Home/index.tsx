@@ -6,7 +6,7 @@ export function Home() {
   const navigation = useNavigation();
 
   function openScreen() {
-    navigation.navigate("about");
+    navigation.navigate("about", { name: "Anderson" });
   }
 
   return (

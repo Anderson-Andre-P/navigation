@@ -9,8 +9,24 @@ import { About } from "../screens/About";
 export function StackRoutes() {
   return (
     <Navigator>
-      <Screen name="home" component={Home} />
-      <Screen name="about" component={About} />
+      <Screen
+        name="home"
+        component={Home}
+        options={{
+          title: "Tela inicial",
+          headerTitleAlign: "center",
+          headerShown: false,
+        }}
+      />
+      <Screen
+        name="about"
+        component={About}
+        options={{
+          title: "Tela sobre",
+          headerStyle: { backgroundColor: "white" },
+          headerTintColor: "#222",
+        }}
+      />
     </Navigator>
   );
 }

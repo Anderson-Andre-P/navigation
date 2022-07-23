@@ -1,10 +1,22 @@
 import React from "react";
 import { Button, View } from "react-native";
+import { useNavigation, useRoute } from "@react-navigation/native";
 
-export function About({ navigation }) {
+type ParamsProps = {
+  name: string;
+};
+
+export function About() {
   function openScreen() {
     navigation.navigate("home");
   }
+
+  const navigation = useNavigation();
+
+  const route = useRoute();
+
+  const { name } = route.params as ParamsProps;
+
   return (
     <View
       style={{
@@ -14,7 +26,7 @@ export function About({ navigation }) {
         justifyContent: "center",
       }}
     >
-      <Button title="Ir para tela Home" onPress={openScreen} />
+      <Button title={"Nome: " + name} onPress={() => navigation.goBack()} />
     </View>
   );
 }
